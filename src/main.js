@@ -3,7 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Vuetify from 'vuetify'
 
+Vue.use(Vuetify)
 Vue.config.productionTip = false
 // Vue.http.headers.common['Access-Control-Allow-Origin'] = '*'
 /* eslint-disable no-new */
@@ -11,5 +13,5 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
+  components: {App}
 })
