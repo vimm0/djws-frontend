@@ -1,24 +1,18 @@
 <template>
   <div id="navbar">
-    <!--<v-app id="inspire">-->
-      <v-toolbar light>
-        <!--<v-toolbar-side-icon></v-toolbar-side-icon>-->
-        <v-toolbar-title class="brand">Web ShikShalaya</v-toolbar-title>
-        <v-spacer></v-spacer>
-        <!--<v-btn icon>-->
-          <!--<v-icon>search</v-icon>-->
-        <!--</v-btn>-->
-        <!--<v-btn icon>-->
-          <!--<v-icon>apps</v-icon>-->
-        <!--</v-btn>-->
-        <!--<v-btn icon>-->
-          <!--<v-icon>refresh</v-icon>-->
-        <!--</v-btn>-->
-        <!--<v-btn icon>-->
-          <!--<v-icon>more_vert</v-icon>-->
-        <!--</v-btn>-->
-      </v-toolbar>
-    <!--</v-app>-->
+    <v-toolbar light>
+      <!--<v-toolbar-side-icon></v-toolbar-side-icon>-->
+	<v-toolbar-title class="brand">
+		<router-link to="/">Web ShikShalaya</router-link>
+	</v-toolbar-title>
+      <v-spacer></v-spacer>
+	<router-link to="/sitemap">
+	<v-btn icon>
+	  <v-icon>fa-sitemap</v-icon>
+	</v-btn>
+	</router-link>
+
+  </v-toolbar>
   </div>
 </template>
 <script>
@@ -29,6 +23,9 @@
 //    }
   }
 </script>
-<style>
-
+<style scoped>
+a:hover {
+    color: #000;
+    text-decoration: none;
+}
 </style>

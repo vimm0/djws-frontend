@@ -3,7 +3,7 @@
     <div class="post sitemap">
       <img src='https://opendata.cityofnewyork.us/wp-content/uploads/2016/12/placeholder-1200x400.svg'
            class='img-responsive'/>
-      <h1 class="detail-title">{{ post.title }}
+      <h1 class="detail-title mt-2">{{ post.title }}
         <small v-if='draft' class="detail-draft">
           <span>Draft</span>
         </small>
@@ -11,8 +11,7 @@
     </div>
     <div class="meta">
       <p>Published: {{ post.publish }} ● Updated: {{ post.updated }}</p>
-      <p>Read time: {{post.read_time}} min</p>
-      <p>Views: 12 times</p>
+      <p>Read time: {{post.read_time}} min ● Views: 12 times</p>
       <ul>
         <div v-if="tag">
           <li class="meta-list">Tag:</li>
@@ -25,7 +24,7 @@
     <div class='row'>
       <div class=' col-md-12 col-lg-12'>
         <!-- this is the content -->
-        <div class='post-detail-item' v-html="post.content"></div>
+        <div class='post-detail-item' v-html="previewText"></div>
         <hr/>
         <br/>
         <!-- share button -->
@@ -77,10 +76,13 @@
   </div>
 </template>
 <script>
+  import axios from 'axios'
+
+  let marked = require('marked')
+
   // https://stackoverflow.com/questions/35840862/vue-js-cannot-read-property-get-of-undefined-on-get-request#answer-35841046
   // http://jsfiddle.net/dccbbkam/4/
   // https://tutorialzine.com/2016/08/building-your-first-app-with-vue-js
-  import axios from 'axios'
   //  https://alligator.io/vuejs/rest-api-axios/
   export default {
     name: 'post-detail',
@@ -108,6 +110,21 @@
         if (!value) return ''
         value = value.toString()
         return value.charAt(0).toUpperCase() + value.slice(1)
+      }
+    },
+    computed: {
+      previewText () {
+        marked.setOptions({
+          renderer: new marked.Renderer(),
+          gfm: true,
+          tables: true,
+          breaks: false,
+          pedantic: false,
+          sanitize: false,
+          smartLists: true,
+          smartypants: false
+        })
+        return marked(this.post.content)
       }
     }
   }
