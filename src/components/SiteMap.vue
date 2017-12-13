@@ -1,9 +1,13 @@
 <template>
   <div class="hello">
-    <h2>Sitemap</h2>
-    <ul>
-      <li v-for='post in posts'><a href="#">{{ post.title }}</a> - {{ post.publish}} </li>
-    </ul>
+    <div class="container">
+      <div class="post sitemap">
+        <h2>Sitemap</h2>
+        <ul>
+          <li v-for='post in posts'><a href="#">{{ post.title }}</a> - {{ post.publish}} </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -11,7 +15,7 @@
   import axios from 'axios'
   //  https://alligator.io/vuejs/rest-api-axios/
   export default {
-    name: 'HelloWorld',
+    name: 'SiteMap',
     data () {
       return {
         posts: [],

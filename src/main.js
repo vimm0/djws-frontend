@@ -7,7 +7,6 @@ import Vuetify from 'vuetify'
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false
-// Vue.http.headers.common['Access-Control-Allow-Origin'] = '*'
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

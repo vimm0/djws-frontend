@@ -1,22 +1,31 @@
 <template>
   <div id="app">
-    <router-view/>
+    <nav-bar></nav-bar>
+    <div class="container">
+      <div class="row mt-3">
+        <div class="col-md-8 col-lg-8">
+          <router-view/>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <side-bar></side-bar>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-3">
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  import NavBar from './components/includes/NavBar.vue'
+  import SideBar from './components/includes/SideBar.vue'
+
+  export default {
+    name: 'app',
+    components: {'nav-bar': NavBar, 'side-bar': SideBar}
+  }
 </script>
 
 <style>
-/*#app {*/
-  /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
-  /*-webkit-font-smoothing: antialiased;*/
-  /*-moz-osx-font-smoothing: grayscale;*/
-  /*text-align: center;*/
-  /*color: #2c3e50;*/
-  /*margin-top: 60px;*/
-/*}*/
+
 </style>
