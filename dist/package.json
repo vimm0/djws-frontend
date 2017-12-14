@@ -1,0 +1,11 @@
+{
+ "name": "WebShikshalaya",
+ "version": "1.0.0",
+ "description": "Private Blog",
+ "author": "Sandesh Rana (Vimm0)",
+ "private": true,
+ "scripts": {
+   "postinstall": "npm install express",
+   "start": "node server.js"
+ }
+}
