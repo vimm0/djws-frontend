@@ -13,7 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
     "build": "node build/build.js",
     "deploy": "git subtree push — prefix dist heroku deploy",
-    "start": "npm run prod"
+    "start": "node server.js"
   },
   "dependencies": {
     "axios": "^0.17.1",
