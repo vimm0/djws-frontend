@@ -13,11 +13,11 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
     "build": "node build/build.js",
     "start": "npm run prod"
-
   },
   "dependencies": {
     "axios": "^0.17.1",
     "bootstrap": "^4.0.0-beta.2",
+    "express": "^4.16.2",
     "jquery": "^3.2.1",
     "marked": "^0.3.7",
     "node-sass": "^4.7.2",
