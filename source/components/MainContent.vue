@@ -84,7 +84,7 @@
             return {post: ''}
         },
         created: function () {
-            this.$http.get('http://127.0.0.1:8000/v1/post/1').then(response => {
+            this.$http.get('http://djshikshalaya.herokuapp.com/v1/post/1').then(response => {
                 this.post = response.body;
             }, response => {
                 // error callback
