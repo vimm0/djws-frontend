@@ -60,7 +60,7 @@
     },
     // Fetches posts when the component is created.
     created () {
-      axios.get(`http://djshikshalaya.herokuapp.com/v1/post/`)
+      axios.get(`https://djshikshalaya.herokuapp.com/v1/post/`)
         .then(response => {
           // JSON responses are automatically parsed.
           this.posts = response.data
@@ -68,7 +68,7 @@
         .catch(e => {
           this.errors.push(e)
         })
-      axios.get(`http://djshikshalaya.herokuapp.com/v1/comment/`)
+      axios.get(`https://djshikshalaya.herokuapp.com/v1/comment/`)
         .then(response => {
           // JSON responses are automatically parsed.
           this.comments = response.data

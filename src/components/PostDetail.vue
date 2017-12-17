@@ -96,7 +96,7 @@
     },
     // Fetches posts when the component is created.
     created () {
-      axios.get(`http://djshikshalaya.herokuapp.com/v1/post/` + this.$route.params.postId)
+      axios.get(`https://djshikshalaya.herokuapp.com/v1/post/` + this.$route.params.postId)
         .then(response => {
           // JSON responses are automatically parsed.
           this.post = response.data
