@@ -6,16 +6,19 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
+    "prod": "webpack-dev-server --inline --progress --config build/webpack.prod.conf.js",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "deploy": "git subtree push — prefix dist heroku deploy",
+    "start": "node server.js"
   },
   "dependencies": {
     "axios": "^0.17.1",
     "bootstrap": "^4.0.0-beta.2",
+    "express": "^4.16.2",
     "jquery": "^3.2.1",
     "marked": "^0.3.7",
     "node-sass": "^4.7.2",
