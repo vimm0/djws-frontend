@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="sitemap">
     <div class="container">
       <div class="post sitemap">
         <h2>Sitemap</h2>

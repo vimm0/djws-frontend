@@ -7,7 +7,7 @@
             <v-card-media
               class="white--text"
               height="170px"
-              src='https://opendata.cityofnewyork.us/wp-content/uploads/2016/12/placeholder-1200x400.svg'>
+              :src="post.image">
               <v-container fill-height fluid>
                 <v-layout fill-height>
                   <v-flex xs12 align-end flexbox>
