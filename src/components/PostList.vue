@@ -22,7 +22,7 @@
               <small>Published: {{ post.publish }}</small>
               <h3 v-if="draft">Staff only: Draft</h3>
               <!--if more than published today-->
-              <h3 v-if="getFuturePost">Staff Only: Future Post</h3>
+              <h3 v-if="getFuturePost(post.publish)">Staff Only: Future Post</h3>
               <!--endif-->
               <p>Author: {{ post.author }}</p>
               {{ post.content | turncate(400) }}
@@ -59,43 +59,37 @@
   </div>
 </template>
 <script>
-  import axios from 'axios'
-  //  https://alligator.io/vuejs/rest-api-axios/
   export default {
     name: 'post-list',
     data () {
       return {
         posts: [],
         draft: false,
-        getFuturePost: false,
+        futurePost: false,
         errors: []
       }
     },
-    // Fetches posts when the component is created.
+    watch: {},
     created () {
-      axios.get(`https://djshikshalaya.herokuapp.com/v1/post/`)
+      global.axios.get('post/')
         .then(response => {
-          // JSON responses are automatically parsed.
           this.posts = response.data
         })
         .catch(e => {
           this.errors.push(e)
         })
-
-      // async / await version (created() becomes async created())
-      //
-      // try {
-      //   const response = await axios.get(`http://jsonplaceholder.typicode.com/posts`)
-      //   this.posts = response.data
-      // } catch (e) {
-      //   this.errors.push(e)
-      // }
     },
-    methods () {
-      return {
-        getFuturePost (show) {
-          show ? this.getFuturePost = true : this.getFuturePost = false
+    methods: {
+      getFuturePost: function (postPublishDate) {
+        console.log(postPublishDate)
+        let currentdate = new Date().toJSON().slice(0, 10).replace(/-/g, '-')  // YYYY-MM-DD
+        console.log(currentdate)
+        if (postPublishDate > currentdate) {
+          this.futurePost = true
+        } else {
+          this.futurePost = false
         }
+        return this.futurePost
       }
     },
     filters: {

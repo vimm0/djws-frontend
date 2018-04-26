@@ -12,8 +12,7 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  //  https://alligator.io/vuejs/rest-api-axios/
+  // import axios from 'axios'
   export default {
     name: 'SiteMap',
     data () {
@@ -22,25 +21,14 @@
         errors: []
       }
     },
-    // Fetches posts when the component is created.
     created () {
-      axios.get(`https://djshikshalaya.herokuapp.com/v1/post/`)
+      global.axios.get(`post/`)
         .then(response => {
-          // JSON responses are automatically parsed.
           this.posts = response.data
         })
         .catch(e => {
           this.errors.push(e)
         })
-
-      // async / await version (created() becomes async created())
-      //
-      // try {
-      //   const response = await axios.get(`http://jsonplaceholder.typicode.com/posts`)
-      //   this.posts = response.data
-      // } catch (e) {
-      //   this.errors.push(e)
-      // }
     }
   }
 </script>

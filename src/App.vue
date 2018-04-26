@@ -19,10 +19,20 @@
 <script>
   import NavBar from './components/includes/NavBar.vue'
   import SideBar from './components/includes/SideBar.vue'
+  import Vue from 'vue'
+  import axios from 'axios'
+  import config from '../config/index'
 
   export default {
     name: 'app',
-    components: {'nav-bar': NavBar, 'side-bar': SideBar}
+    components: {'nav-bar': NavBar, 'side-bar': SideBar},
+    created () {
+      axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN'
+      axios.defaults.xsrfCookieName = 'csrftoken'
+      axios.defaults.baseURL = config.build.apiBaseURL
+      global.axios = axios
+      global.Vue = Vue
+    }
   }
 </script>
 

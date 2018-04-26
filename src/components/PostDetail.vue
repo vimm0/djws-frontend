@@ -76,14 +76,7 @@
   </div>
 </template>
 <script>
-  import axios from 'axios'
-
   let marked = require('marked')
-
-  // https://stackoverflow.com/questions/35840862/vue-js-cannot-read-property-get-of-undefined-on-get-request#answer-35841046
-  // http://jsfiddle.net/dccbbkam/4/
-  // https://tutorialzine.com/2016/08/building-your-first-app-with-vue-js
-  //  https://alligator.io/vuejs/rest-api-axios/
   export default {
     name: 'post-detail',
     data () {
@@ -96,7 +89,7 @@
     },
     // Fetches posts when the component is created.
     created () {
-      axios.get(`https://djshikshalaya.herokuapp.com/v1/post/` + this.$route.params.postId)
+      global.axios.get('post/' + this.$route.params.postId)
         .then(response => {
           // JSON responses are automatically parsed.
           this.post = response.data

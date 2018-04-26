@@ -71,6 +71,7 @@ module.exports = {
     // npm install --save-dev compression-webpack-plugin
     productionGzip: false,
     productionGzipExtensions: ['js', 'css'],
+    apiBaseURL: process.env.NODE_ENV === 'production' ? 'https://djshikshalaya.herokuapp.com/v1/' : 'http://localhost:8000/v1/',
 
     // Run the build command with an extra argument to
     // View the bundle analyzer report after build finishes:

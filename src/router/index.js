@@ -7,8 +7,7 @@ import PostCreate from '@/components/PostCreate'
 import SiteMap from '@/components/SiteMap'
 
 Vue.use(Router)
-// https://stackoverflow.com/questions/42904025/vuejs-vue-router-create-details-page-from-list-item#answer-42905800
-// https://medium.com/@softwarecf/getting-started-with-vue-router-37cd7d783245
+
 export default new Router({
   mode: 'history',
   routes: [

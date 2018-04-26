@@ -46,7 +46,6 @@
   </div>
 </template>
 <script>
-  import axios from 'axios'
   export default {
     name: 'side-bar',
     data () {
@@ -58,19 +57,16 @@
         tag: false
       }
     },
-    // Fetches posts when the component is created.
     created () {
-      axios.get(`https://djshikshalaya.herokuapp.com/v1/post/`)
+      global.axios.get(`post/`)
         .then(response => {
-          // JSON responses are automatically parsed.
           this.posts = response.data
         })
         .catch(e => {
           this.errors.push(e)
         })
-      axios.get(`https://djshikshalaya.herokuapp.com/v1/comment/`)
+      global.axios.get(`comment/`)
         .then(response => {
-          // JSON responses are automatically parsed.
           this.comments = response.data
         }).catch(e => {
           this.errors.push(e)
@@ -90,12 +86,8 @@
         return value.substring(0, length) + '...'
       },
       jsDate: function (d) {
-//        console.log(new Date(d.getYears))
         return new Date(d.year, d.month - 1, d.day)
       }
     }
   }
 </script>
-<style>
-
-</style>
