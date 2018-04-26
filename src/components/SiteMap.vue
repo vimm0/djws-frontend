@@ -4,7 +4,12 @@
       <div class="post sitemap">
         <h2>Sitemap</h2>
         <ul>
-          <li v-for='post in posts'><a href="#">{{ post.title }}</a> - {{ post.publish}} </li>
+          <li v-for='post in posts'>
+            <router-link :to="{ name: 'PostDetail', params: { postId: post.id }}">
+              {{ post.title }}
+            </router-link>
+            - {{ post.publish}}
+          </li>
         </ul>
       </div>
     </div>
@@ -12,7 +17,6 @@
 </template>
 
 <script>
-  // import axios from 'axios'
   export default {
     name: 'SiteMap',
     data () {

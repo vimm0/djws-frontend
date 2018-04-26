@@ -20,12 +20,10 @@
             </v-card-media>
             <v-card-text>
               <small>Published: {{ post.publish }}</small>
-              <h3 v-if="draft">Staff only: Draft</h3>
-              <!--if more than published today-->
-              <h3 v-if="getFuturePost(post.publish)">Staff Only: Future Post</h3>
-              <!--endif-->
+              <div v-if="post.draft" class="body-1 red--text">Staff only: Draft</div>
+              <div v-if="post.future_post" class="body-1 red--text">Staff Only: Future Post</div>
               <p>Author: {{ post.author }}</p>
-              {{ post.content | turncate(400) }}
+              <p v-html="getContent(post.content)"></p>
             </v-card-text>
             <v-card-actions>
               <v-btn icon class="red--text">
@@ -38,27 +36,24 @@
                 <v-icon medium>fa-facebook</v-icon>
               </v-btn>
               <v-spacer></v-spacer>
-              <router-link :to="{ name: 'PostDetail', params: { postId: post.id }}">
-                <v-btn flat class="blue--text">Read More</v-btn>
-              </router-link>
+              <template v-if="post.future_post">
+                <v-btn flat class="blue--text" :disabled="post.future_post">Read More</v-btn>
+              </template>
+              <template v-else>
+                <router-link :to="{ name: 'PostDetail', params: { postId: post.id }}">
+                  <v-btn flat class="blue--text" :disabled="post.future_post">Read More</v-btn>
+                </router-link>
+              </template>
             </v-card-actions>
           </v-card>
         </div>
       </v-flex>
-      <!-- <div class="post sitemap" v-for="post in posts">
-        <img src='https://opendata.cityofnewyork.us/wp-content/uploads/2016/12/placeholder-1200x400.svg'
-             class='img-responsive'/>
-        <p v-html="">{{ post.content | turncate(400) }}</p>
-        <router-link :to="{ name: 'PostDetail', params: { postId: post.id }}">
-          <button type="button" class="btn btn-outline-info"><a href="#">view</a></button>
-        </router-link>
-        <hr/>
-      </div> -->
     </div>
-
   </div>
 </template>
 <script>
+  let marked = require('marked')
+
   export default {
     name: 'post-list',
     data () {
@@ -69,7 +64,6 @@
         errors: []
       }
     },
-    watch: {},
     created () {
       global.axios.get('post/')
         .then(response => {
@@ -79,31 +73,29 @@
           this.errors.push(e)
         })
     },
-    methods: {
-      getFuturePost: function (postPublishDate) {
-        console.log(postPublishDate)
-        let currentdate = new Date().toJSON().slice(0, 10).replace(/-/g, '-')  // YYYY-MM-DD
-        console.log(currentdate)
-        if (postPublishDate > currentdate) {
-          this.futurePost = true
-        } else {
-          this.futurePost = false
-        }
-        return this.futurePost
-      }
-    },
     filters: {
       capitalize: function (value) {
         if (!value) return ''
         value = value.toString()
         return value.charAt(0).toUpperCase() + value.slice(1)
       },
-      turncate: function (value, length) {
-        if (value.length < length) {
-          return value
-        }
-        length = length - 3
-        return value.substring(0, length) + '...'
+      truncate: function (text, stop, clamp) {
+        return text.split(' ').slice(0, stop).join(' ') + (stop < text.length ? clamp || ' ...' : '')
+      }
+    },
+    methods: {
+      getContent: function (data) {
+        marked.setOptions({
+          renderer: new marked.Renderer(),
+          gfm: true,
+          tables: true,
+          breaks: false,
+          pedantic: false,
+          sanitize: false,
+          smartLists: true,
+          smartypants: false
+        })
+        return marked(this.$options.filters.truncate(data, 30, ' ...'))
       }
     }
   }
