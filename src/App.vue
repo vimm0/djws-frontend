@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row mt-3">
         <div class="col-md-8 col-lg-8">
-          <router-view/>
+          <router-view :key="$route.fullPath"></router-view>
         </div>
         <div class="col-md-4 col-lg-3">
           <side-bar></side-bar>

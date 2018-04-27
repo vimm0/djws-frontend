@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import PostList from '@/components/PostList'
-import PostDetail from '@/components/PostDetail'
-import PostCreate from '@/components/PostCreate'
 
-import SiteMap from '@/components/SiteMap'
+import PostList from '@/components/apps/post/PostList'
+import PostDetail from '@/components/apps/post/PostDetail'
+
+import SiteMap from '@/components/includes/SiteMap'
 
 Vue.use(Router)
 
@@ -15,11 +15,6 @@ export default new Router({
       path: '/',
       name: 'PostList',
       component: PostList
-    },
-    {
-      path: '/create',
-      name: 'PostCreate',
-      component: PostCreate
     },
     {
       path: '/post/:postId',

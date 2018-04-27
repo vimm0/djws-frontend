@@ -19,7 +19,6 @@ export default {
         ({data}) => {
           this.currentEndPoint = url
           this.results = data
-          console.log(this.results)
         }
       )
     }
