@@ -36,10 +36,21 @@ export default {
     },
     randomColor (id) {
       const r = () => Math.floor(256 * Math.random())
+      // let oneColor = ''
+      // let anotherColor = ''
+      // const possible = 'ABCDEF0123456789'
+      //
+      // for (let i = 0; i < 6; i++) {
+      //   oneColor += possible.charAt(Math.floor(Math.random() * possible.length).toString(16))
+      //   anotherColor += possible.charAt(Math.floor(Math.random() * possible.length).toString(16))
+      // }
+      // console.log('#' + oneColor)
+      // console.log('#' + anotherColor)
+      // return this.colorCache[id] || (this.colorCache[id] = `radial-gradient(circle, ${'#' + oneColor} 0%, ${'#' + anotherColor} 100%)`)
       return this.colorCache[id] || (this.colorCache[id] = `rgb(${r()}, ${r()}, ${r()})`)
     }
   },
   mounted () {
-    this.getRandomColors()
+    // this.getRandomColors()
   }
 }

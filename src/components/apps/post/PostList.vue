@@ -30,13 +30,13 @@
                   <vue-simple-markdown :source="getListContent(post.content)"></vue-simple-markdown>
                 </v-card-text>
                 <v-card-actions>
-                  <v-btn icon class="red--text" fab>
+                  <v-btn icon class="red--text">
                     <v-icon medium>fa-reddit</v-icon>
                   </v-btn>
-                  <v-btn icon class="light-blue--text" fab>
+                  <v-btn icon class="light-blue--text">
                     <v-icon medium>fa-twitter</v-icon>
                   </v-btn>
-                  <v-btn icon class="blue--text text--darken-4" fab>
+                  <v-btn icon class="blue--text text--darken-4">
                     <v-icon medium>fa-facebook</v-icon>
                   </v-btn>
                   <v-spacer></v-spacer>
@@ -63,7 +63,7 @@
 
   export default {
     name: 'post-list',
-    data() {
+    data () {
       return {
         posts: [],
         draft: false,
