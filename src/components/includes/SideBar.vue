@@ -1,6 +1,6 @@
 <template>
   <div id="side-bar">
-    <v-container>
+    <v-container hidden-xs-only hidden-sm-only>
       <v-layout row wrap>
         <v-flex>
           <latest-post :endPoint="this.$options.endpoint">
@@ -25,13 +25,12 @@
           <v-card class="custom-shadow card">
             <div class="text-center">
               <div class="caption sidebar-github mt-2">Contribute on github or download source code and have fun.</div>
-              <a class="github-button" href="https://github.com/vimm0"
-                 aria-label="Follow @vimm0 on GitHub">Follow@vimm0</a>
-              <a class="github-button" href="https://github.com/vimm0/web_sikhalaya/fork"
-                 data-icon="octicon-repo-forked"
-                 aria-label="Fork vimm0/web_sikhalaya on GitHub">Fork</a>
-              <a class="github-button" href="https://github.com/vimm0/web_sikhalaya" data-icon="octicon-star"
-                 aria-label="Star vimm0/web_sikhalaya on GitHub">Star</a>
+              <a class="github-button" href="https://github.com/vimm0" aria-label="Follow @vimm0 on GitHub">Follow
+                @vimm0</a>
+              <a class="github-button" href="https://github.com/vimm0/vimm0.github.io/fork"
+                 data-icon="octicon-repo-forked" aria-label="Fork vimm0/vimm0.github.io on GitHub">Fork</a>
+              <a class="github-button" href="https://github.com/vimm0/vimm0.github.io" data-icon="octicon-star"
+                 aria-label="Star vimm0/vimm0.github.io on GitHub">Star</a>
             </div>
           </v-card>
         </v-flex>

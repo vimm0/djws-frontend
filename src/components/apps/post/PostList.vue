@@ -30,22 +30,25 @@
                   <vue-simple-markdown :source="getListContent(post.content)"></vue-simple-markdown>
                 </v-card-text>
                 <v-card-actions>
-                  <v-btn icon class="red--text">
-                    <v-icon medium>fa-reddit</v-icon>
+                  <v-btn icon class="red--text" style="position:relative;padding:0;">
+                    <v-icon medium style="position:absolute">fa-reddit</v-icon>
                   </v-btn>
-                  <v-btn icon class="light-blue--text">
-                    <v-icon medium>fa-twitter</v-icon>
+                  <v-btn icon class="light-blue--text" style="position:relative;padding:0;">
+                    <v-icon medium style="position:absolute">fa-twitter</v-icon>
                   </v-btn>
-                  <v-btn icon class="blue--text text--darken-4">
-                    <v-icon medium>fa-facebook</v-icon>
+                  <v-btn icon class="blue--text text--darken-4" style="position:relative;padding:0;">
+                    <v-icon medium style="position:absolute">fa-facebook</v-icon>
                   </v-btn>
+                  <div id="twitter-wjs"></div>
                   <v-spacer></v-spacer>
                   <template v-if="post.future_post">
                     <v-btn flat class="blue--text" :disabled="post.future_post">Read More</v-btn>
                   </template>
                   <template v-else>
                     <router-link :to="{ name: 'PostDetail', params: { postId: post.id }}">
-                      <v-btn flat class="blue--text" :disabled="post.future_post">Read More</v-btn>
+                      <v-btn flat class="blue--text" :disabled="post.future_post" style="position:relative;padding:0;">
+                        Read More
+                      </v-btn>
                     </router-link>
                   </template>
                 </v-card-actions>

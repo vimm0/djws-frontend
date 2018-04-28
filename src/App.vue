@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <div class="app">
     <nav-bar></nav-bar>
     <v-container>
       <div class="row mt-3">
@@ -11,8 +11,7 @@
         </div>
       </div>
     </v-container>
-  </v-app>
-
+  </div>
 </template>
 
 <script>
