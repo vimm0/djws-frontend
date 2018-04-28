@@ -6,7 +6,7 @@
         <router-link to="/">ShikShalaya</router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-       <v-btn icon style="position:relative;padding:0;" href="https://github.com/vimm0/vimm0.github.io">
+       <v-btn icon style="position:relative;padding:0;" rel="noopener noreferrer" target="_blank" href="https://github.com/vimm0/vimm0.github.io">
         <v-icon style="position:relative;">fa-github</v-icon>
       </v-btn>
       <router-link to="/sitemap">
