@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <v-app>
     <nav-bar></nav-bar>
-    <div class="container">
+    <v-container>
       <div class="row mt-3">
         <div class="col-md-8 col-lg-8">
           <router-view :key="$route.fullPath"></router-view>
@@ -10,20 +10,9 @@
           <side-bar></side-bar>
         </div>
       </div>
-    </div>
-    <div class="container mt-3">
-    </div>
-  </div>
-  <!--<v-app>-->
-  <!--<v-navigation-drawer app></v-navigation-drawer>-->
-  <!--<v-toolbar app></v-toolbar>-->
-  <!--<v-content>-->
-    <!--<v-container fluid>-->
-      <!--<router-view></router-view>-->
-    <!--</v-container>-->
-  <!--</v-content>-->
-  <!--<v-footer app></v-footer>-->
-<!--</v-app>-->
+    </v-container>
+  </v-app>
+
 </template>
 
 <script>
@@ -45,7 +34,3 @@
     }
   }
 </script>
-
-<style>
-
-</style>
