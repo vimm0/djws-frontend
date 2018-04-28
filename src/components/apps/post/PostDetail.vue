@@ -1,10 +1,10 @@
 <template>
   <div id="post-detail">
     <v-flex>
-      <div class="post sitemap">
+      <div class="post">
         <template v-if="post.image"><v-card-media :src="post.image" height="200px" width="auto">
         </v-card-media></template>
-        <template v-else><div class="color-image"></div></template>
+        <template v-else><div class="image" :style="{backgroundColor: randomColor(post.id)}"></div></template>
         <v-card-title primary-title>
           <div class="meta">
             <h1 class="detail-title mt-2">{{ post.title }}</h1>

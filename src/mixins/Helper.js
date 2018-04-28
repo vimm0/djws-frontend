@@ -1,5 +1,10 @@
 export default {
   name: 'Helper',
+  data () {
+    return {
+      colorCache: {}
+    }
+  },
   filters: {
     capitalize: function (value) {
       if (!value) return ''
@@ -28,6 +33,13 @@ export default {
     },
     getCommentContent: function (data) {
       return this.$options.filters.truncate(data, 5, ' ...')
+    },
+    randomColor (id) {
+      const r = () => Math.floor(256 * Math.random())
+      return this.colorCache[id] || (this.colorCache[id] = `rgb(${r()}, ${r()}, ${r()})`)
     }
+  },
+  mounted () {
+    this.getRandomColors()
   }
 }

@@ -11,7 +11,7 @@
                   </v-card-media>
                 </template>
                 <template v-else>
-                  <div class="color-image"></div>
+                  <div class="image" :style="{backgroundColor: randomColor(post.id)}"></div>
                 </template>
                 <v-container fill-height fluid>
                   <v-layout fill-height>
@@ -63,7 +63,7 @@
 
   export default {
     name: 'post-list',
-    data () {
+    data() {
       return {
         posts: [],
         draft: false,
