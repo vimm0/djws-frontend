@@ -1,4 +1,4 @@
-# my-project
+## Djws(Django Web Shikshalaya)
 
 > A Vue.js project
 
@@ -30,8 +30,14 @@ Required:
 - Bootstrap
 - vuetify
 
-Push dist to gh-pages:
+#### Steps:
+1. Develop
+2. Push /dist to gh-pages branch:
 
-`git stpp dist origin gh-pages`
+    `git stpp dist origin gh-pages`
+
+Hosted on:
+
+[https://shikshalaya.netlify.com/](https://shikshalaya.netlify.com/)
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
