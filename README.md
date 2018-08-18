@@ -30,4 +30,8 @@ Required:
 - Bootstrap
 - vuetify
 
+Push dist to gh-pages:
+
+`git stpp dist origin gh-pages`
+
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
