@@ -22,7 +22,7 @@
     "growl": "^1.10.0",
     "hoek": "^5.0.4",
     "https-proxy-agent": "^2.2.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "lodash": "^4.17.10",
     "marked": "^0.5.0",
     "mime": "^1.4.1",
